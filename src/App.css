@@ -144,6 +144,50 @@ body {
 .container .toDo .close i {
   color: brown;
 }
+.toDoInput i {
+  font-size: large;
+  color: rgb(84, 84, 84);
+}
+
+.container i {
+  font-size: larger;
+  margin-top: .16rem;
+}
+
+.container .toDo .bin i {
+  color: rgb(69, 69, 69);
+}
+
+
+
+.container.done {
+  background-color: seagreen;
+  box-shadow: 0 0 2px 2px seagreen;
+}
+
+.container.done .toDo {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+}
+
+.container.done .toDo .top {
+  width: 25.5vw;
+}
+
+.container.done .toDo .left {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.container.done .toDo .right {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
 /* .app .input {
   display: flex;
   justify-content: center;

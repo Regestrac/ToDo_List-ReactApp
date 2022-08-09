@@ -57,7 +57,7 @@ function App() {
         {toDos && toDos.map((obj) => {
           if (obj.statusCompleted && !obj.statusDrop) {
             return (
-              <div className="toDo">
+              <div key={obj.id} className="toDo">
                 <div className="left tick">
                   <i onClick={(e) => {
                     e.target.value = true;
@@ -92,23 +92,41 @@ function App() {
         })
         }
       </div>
-        <div>
-        {toDos.map((obj)=>{
-          if(obj.status){
-            return(
-              <div className='todo'>
-                <div className='left'>
-                <p>{obj.text}</p>
+
+      <div className='container done'>
+        <h3>Completed</h3>
+        {
+          toDos && toDos.map((obj)=>{
+            if(obj.statusCompleted && !obj.statusRemoved){
+              return(
+                <div className='toDo'>
+                  <div className='top'>
+                    <p>{obj.text}</p>
+                  </div>
+                  <div className='bottom'>
+                    <p></p>
+                  </div>
+                  <div className='right bin'>
+                    <i onClick={(e)=>{
+                      let isdelete = window.confirm("Delete ToDo Permenetly!")
+                      if(isdelete){
+                        e.target.value=true;
+                      }
+                      setToDos(toDos.filter((obj2)=>{
+                        if(obj2.id === obj.id){
+                          obj2.statusRemoved = e.target.value;
+                        }
+                        return obj2
+                      }))
+                    }} value={obj.statusRemoved} className="fas fa-trash-alt" title='Remove'></i>
+                  </div>
                 </div>
-                <div className='right'>
-                <i className='fa-solid fa-trash-can'></i>
-                </div>
-              </div>
-            )
-          }
-          return null;
-        })}
+              )
+            }
+          })
+        }
       </div>
+
     </div>
   );
 }
