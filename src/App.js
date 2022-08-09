@@ -16,7 +16,9 @@ function App() {
         id:Date.now(),
         text:toDo,
         statusCompleted:false,
-        statusRemoved:false
+        statusRemoved:false,
+        statusDrop:false,
+        statusErase:false,
       }]);
       setToDo('');
     }
@@ -50,31 +52,47 @@ function App() {
           </div>
         </form>
 
-      <div className="todos">
-        <h3>Completed</h3>
+      <div className="container onGoing">
+        <h3>Active</h3>
         {toDos && toDos.map((obj) => {
-          if (obj.statusCompleted && !obj.statusRemoved) {
+          if (obj.statusCompleted && !obj.statusDrop) {
             return (
-              <div className="todo">
-                <div className="left">
-                  <input onChange={(e) => {
-                    setToDos(toDos.filter(obj2 => {
+              <div className="toDo">
+                <div className="left tick">
+                  <i onClick={(e) => {
+                    e.target.value = true;
+                    setToDos(toDo.filter((obj2) => {
                       if (obj2.id === obj.id) {
-                        obj2.status = e.target.checked
+                        obj2.statusCompleted = e.target.value;
                       }
                       return obj2;
                     }))
-                  }} value={obj.status} type="checkbox" />
-                  <p>{obj.text}</p>
-                </div>
-                <div className="right">
-                  <i className="fas fa-times"></i>
+                  }} value={obj.statusCompleted} className='fas fa-check' title='Done'></i>
+                  <div className='top'>
+                    <p>{obj.text}</p>
+                  </div>
+                  <div className='bottom'>
+                    <p>{obj.toDoTime}</p>
+                  </div>
+                  <div className="right">
+                    <i onClick={(e) => {
+                      e.target.value = true;
+                      setToDos(toDo.filter((obj2) => {
+                        if (obj2.id === obj.id) {
+                          obj2.statusDrop = e.target.value;
+                        }
+                        return obj2
+                      }))
+                    }} value={obj.statusDrop} className="fas fa-times" title='Drop'></i>
+                  </div>
                 </div>
               </div>
             )
           }
         })
         }
+      </div>
+        <div>
         {toDos.map((obj)=>{
           if(obj.status){
             return(

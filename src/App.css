@@ -61,6 +61,89 @@ body {
 .app h1 {
   color: white;
 }
+
+
+.container {
+  height: 100%;
+  width: 100%;
+  float: left;
+  margin-top: 2.5%;
+  margin-left: 2.5%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: .25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .toDo {
+  width: 92%;
+  height: 100%;
+  background-color: rgb(241, 241, 241, 0.2);
+  margin-top: .5rem;
+  padding: 5px;
+  border-radius: .25rem;
+  transition: width 200ms;
+}
+
+.container .toDo:hover {
+  background-color: rgba(241, 241, 241, 0.313);
+  width: 95%;
+}
+
+.container .toDo .top p {
+  word-wrap: break-word;
+  text-align: justify;
+  font-size: large;
+  font-weight: 700;
+  cursor: default;
+}
+
+.container .toDo .bottom p {
+  font-size: small;
+  cursor: default;
+}
+
+
+
+.container.onGoing {
+  background-color: gold;
+  box-shadow: 0 0 2px 2px darkgoldenrod;
+}
+
+.container.onGoing .toDo {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+}
+
+.container.onGoing .toDo .top {
+  width: 24vw;
+}
+
+.container.onGoing .toDo .left {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.container.onGoing .toDo .right {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+
+.container .toDo .tick i {
+  color: seagreen;
+}
+.container .toDo .close i {
+  color: brown;
+}
 /* .app .input {
   display: flex;
   justify-content: center;
