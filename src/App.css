@@ -6,41 +6,51 @@ body {
   background-color: #020631;
 }
 .app {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -10%);
-}
-.subHeading{
-  text-align: center;
-  margin-top: 1rem;
-  background: -webkit-linear-gradient(rgb(255, 150, 22), rgb(25, 255, 86));
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.inputOptions{
   width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inputOptions{
+   width: fit-content;
    height: 3.5rem;
-   background-color: rgb(255, 255, 255);
-   box-shadow: 0 0 2px 1px rgb(255, 255, 255);
+   background-color: white;
+   box-shadow: 0 0 2px 1px white;
    margin: auto;
    margin-top: 1rem;
-   border-radius: .25rem;
+   border-radius: .5rem;
    display: grid;
    grid-template-columns: 80% 10% 10%;
 }
+.inputSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subHeading, .mainHeading{
+  text-align: center;
+  margin-top: 1rem;
+  background: -webkit-linear-gradient(rgb(255, 227, 103), #16c5f5);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .inputOptions .left input {
   width: 98%;
   height: 90%;
   margin-top: .8%;
   margin-left: 1%;
-  border: unset;
-  border-radius: .25rem;
+  border: none;
   outline: none;
-  padding-left: .3rem;
   font-size: x-large;
   font-family: inherit;
   font-weight: bold;
+  background: transparent;
 }
 
 .inputOptions .middle {
@@ -55,18 +65,62 @@ body {
   align-items: center;
 }
 
-.app .mainHeading h1 {
-  text-align: center;
-}
-.app h1 {
-  color: white;
+.list-sec{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+.list-sec .container{
+  width: (90%/3);
+  margin-right: 1rem;
+  margin-left: 1rem;
+  border-radius: .5rem;
+  
+}
+
+i {
+  cursor: pointer;
+}
+
+.toDoInput i {
+  font-size: large;
+  color: rgb(84, 84, 84);
+}
+
+.container i {
+  font-size: larger;
+  margin-top: .16rem;
+}
+
+.container .toDo .bin i {
+  color: rgb(69, 69, 69);
+}
+
+.container .toDo .close i {
+  color: brown;
+}
+
+.container .toDo .tick i {
+  color: green;
+}
+
+.container .toDo .recycle i {
+  color: rgb(46, 75, 164);
+}
+
+.container i {
+  font-size: larger;
+  margin-top: .16rem;
+}
+
+.container .toDo .bin i {
+  color: rgb(69, 69, 69);
+}
 
 .container {
   height: 100%;
-  width: 100%;
-  float: left;
+  width: 30rem;
   margin-top: 2.5%;
   margin-left: 2.5%;
   padding-top: 1rem;
@@ -79,7 +133,7 @@ body {
 }
 
 .container .toDo {
-  width: 92%;
+  width: 95%;
   height: 100%;
   background-color: rgb(241, 241, 241, 0.2);
   margin-top: .5rem;
@@ -109,8 +163,7 @@ body {
 
 
 .container.onGoing {
-  background-color: #16dff5;
-  box-shadow: 0 0 2px 2px #16a7f5;
+  background-color: #03a5d6;
 }
 
 .container.onGoing .toDo {
@@ -138,50 +191,11 @@ body {
 }
 
 
-i {
-  cursor: pointer;
-}
-
-.toDoInput i {
-  font-size: large;
-  color: rgb(84, 84, 84);
-}
-
-.container i {
-  font-size: larger;
-  margin-top: .16rem;
-}
-
-.container .toDo .bin i {
-  color: rgb(69, 69, 69);
-}
-
-.container .toDo .close i {
-  color: brown;
-}
-
-.container .toDo .tick i {
-  color: seagreen;
-}
-
-.container .toDo .recycle i {
-  color: rgb(46, 75, 164);
-}
-
-.container i {
-  font-size: larger;
-  margin-top: .16rem;
-}
-
-.container .toDo .bin i {
-  color: rgb(69, 69, 69);
-}
-
 
 
 .container.done {
-  background-color: seagreen;
-  box-shadow: 0 0 2px 2px seagreen;
+  background-color: rgb(0, 130, 0);
+
 }
 
 .container.done .toDo {
@@ -210,8 +224,7 @@ i {
 
 
 .container.dropped {
-  background-color: brown;
-  box-shadow: 0 0 2px 2px brown;
+  background-color: #fd2f2f;
 }
 
 .container.dropped .toDo {
