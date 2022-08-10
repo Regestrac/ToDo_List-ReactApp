@@ -41,7 +41,7 @@ body {
 }
 
 .inputOptions .left input {
-  width: 98%;
+  width: 97%;
   height: 90%;
   margin-top: .8%;
   margin-left: 1%;
@@ -72,7 +72,7 @@ body {
 }
 
 .list-sec .container{
-  width: (90%/3);
+  width: 30rem;
   margin-right: 1rem;
   margin-left: 1rem;
   border-radius: .5rem;
@@ -120,7 +120,6 @@ i {
 
 .container {
   height: 100%;
-  width: 30rem;
   margin-top: 2.5%;
   margin-left: 2.5%;
   padding-top: 1rem;
@@ -148,6 +147,7 @@ i {
 }
 
 .container .toDo .top p {
+  width: fit-content;
   word-wrap: break-word;
   text-align: justify;
   font-size: large;
@@ -173,7 +173,7 @@ i {
 }
 
 .container.onGoing .toDo .top {
-  width: 24vw;
+  width: auto;
 }
 
 .container.onGoing .toDo .left {
@@ -205,7 +205,7 @@ i {
 }
 
 .container.done .toDo .top {
-  width: 25.5vw;
+  width: auto;
 }
 
 .container.done .toDo .left {
@@ -234,7 +234,8 @@ i {
 }
 
 .container.dropped .toDo .top {
-  width: 23.5vw;
+  width: auto;
+  word-wrap: break-word;
 }
 
 .container.dropped .toDo .left {

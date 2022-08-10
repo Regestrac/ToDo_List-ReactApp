@@ -1,10 +1,16 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   const [toDo, setToDo] = useState('')
-  const [toDos, setToDos] = useState([])
+  const [toDos, setToDos] = useState(()=>{
+    const saved = localStorage.getItem("Storage"); //get stored data from local storage if available
+    const initialValue = JSON.parse(saved);
+    return (initialValue || "")                   //If not available gets empty string
+  })
+  const index = toDos && toDos.findIndex(obj => obj.statusRemoved == true);
+  if(index > -1) {toDos && toDos.splice((index), 1); }
 
   const today = new Date();
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -41,6 +47,9 @@ function App() {
   const clearInput = () => {
     setToDo('');
   }
+  useEffect(()=>{        // Store data to localStorage of browser
+    localStorage.setItem("Storage", JSON.stringify(toDos));
+  },[toDos])
 
   return (
     <div className="app">
@@ -74,7 +83,7 @@ function App() {
           {toDos && toDos.map((obj) => {
             if (obj.statusDone && !obj.statusRemoved) {
               return (
-                <div ket={obj.id} className='toDo'>
+                <div key={obj.id} className='toDo'>
                   <div className='left'></div>
                   <div className='top'>
                     <p>{obj.text}</p>
@@ -182,7 +191,7 @@ function App() {
 
         <div className='container dropped'>
           <h3>Cancelled</h3>
-          {toDo && toDos.map((obj) => {
+          {toDos && toDos.map((obj) => {
             if (obj.statusDrop && !obj.statusRetreve && !obj.statusRemoved) {
               return (
                 <div key={obj.id} className='toDo'>
