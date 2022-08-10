@@ -19,6 +19,7 @@ function App() {
         statusRemoved:false,
         statusDrop:false,
         statusErase:false,
+        statusRetreve:false
       }]);
       setToDo('');
     }
@@ -127,6 +128,52 @@ function App() {
         }
       </div>
 
+        <div className='container dropped'>
+          <h3>Cancelled</h3>
+          { toDo && toDos.map((obj)=>{
+            if(obj.statusDrop && !obj.statusRetreve && !obj.statusRemoved){
+              return(
+                <div className='toDo'>
+                  <div className='left recycle'>
+                    <i onClick={(e)=>{
+                      let isdelete = window.confirm("Retreve cancelled todo")
+                      if(isdelete){
+                        e.target.value=true
+                      }
+                      setToDos(toDos.filter((obj2)=>{
+                        if(obj2.id ===  obj.id){
+                          obj2.statusRetreve = e.target.value
+                        }
+                        return obj2
+                      }))
+                    }} value={obj.statusRetreve} className='fas fa-redo-alt' title='Retreve'></i>
+                    </div>
+                    <div className='top'>
+                      <p className=''>{obj.text}</p>
+                    </div>
+                    <div className='bottom'>
+                      <p>{}</p>
+                    </div>
+                    <div className='right binm'>
+                      <i onClick={(e)=>{
+                        let isdelete= window.confirm("Delete toDo Permenetly")
+                        if(isdelete){
+                          e.target.value = true
+                        }
+                        setToDos(toDos.filter((obj2)=>{
+                          if(obj2.id === obj.id){
+                            obj2.statusRemoved = e.target.value
+                          }
+                          return obj2
+                        }))
+                      }} value={obj.statusRemoved} className='fas fa-trash-alt' title='Remove'></i>
+                    </div>
+                </div>
+              )
+            }
+          })
+          }
+        </div>
     </div>
   );
 }
