@@ -2,40 +2,46 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background-color: #020631;
 }
+
 .app {
   width: 100%;
   align-items: center;
   justify-content: center;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.inputOptions{
-   width: fit-content;
-   height: 3.5rem;
-   background-color: white;
-   box-shadow: 0 0 2px 1px white;
-   margin: auto;
-   margin-top: 1rem;
-   border-radius: .5rem;
-   display: grid;
-   grid-template-columns: 80% 10% 10%;
+.inputOptions {
+  width: 35rem;
+  height: 3.5rem;
+  background-color: white;
+  box-shadow: 0 0 2px 1px white;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: .5rem;
+  display: grid;
+  grid-template-columns: 80% 10% 10%;
 }
-.inputSection{
+
+.inputSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.subHeading, .mainHeading{
+.headings {
+  margin-top: 2.5rem;
+}
+
+.subHeading, .mainHeading {
   text-align: center;
   margin-top: 1rem;
-  background: -webkit-linear-gradient(rgb(255, 227, 103), #16c5f5);
+  background: -webkit-linear-gradient(rgb(255, 213, 27), #3cd4fe);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -65,27 +71,29 @@ body {
   align-items: center;
 }
 
-.list-sec{
+.list-sec {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
-.list-sec .container{
-  width: 30rem;
+.list-sec .container {
+  width: 30%;
+  min-width: 27rem;
   margin-right: 1rem;
   margin-left: 1rem;
   border-radius: .5rem;
-  
+
 }
 
 i {
   cursor: pointer;
 }
 
-.toDoInput i {
-  font-size: large;
-  color: rgb(84, 84, 84);
+.inputOptions i {
+  font-size: 1.3rem;
+  color: rgb(111, 105, 105);
 }
 
 .container i {
@@ -119,6 +127,7 @@ i {
 }
 
 .container {
+  width:100%;
   height: 100%;
   margin-top: 2.5%;
   margin-left: 2.5%;
@@ -132,22 +141,22 @@ i {
 }
 
 .container .toDo {
-  width: 95%;
+  width: 90%;
   height: 100%;
   background-color: rgb(241, 241, 241, 0.2);
   margin-top: .5rem;
   padding: 5px;
-  border-radius: .25rem;
-  transition: width 200ms;
+  border-radius: .35rem;
+  transition: width 150ms;
+
 }
 
 .container .toDo:hover {
   background-color: rgba(241, 241, 241, 0.313);
-  width: 95%;
+  scale: 1.04;
 }
 
 .container .toDo .top p {
-  width: fit-content;
   word-wrap: break-word;
   text-align: justify;
   font-size: large;
@@ -160,8 +169,6 @@ i {
   cursor: default;
 }
 
-
-
 .container.onGoing {
   background-color: #03a5d6;
 }
@@ -173,7 +180,7 @@ i {
 }
 
 .container.onGoing .toDo .top {
-  width: auto;
+  width: 20rem;
 }
 
 .container.onGoing .toDo .left {
@@ -190,11 +197,8 @@ i {
   grid-row-end: 3;
 }
 
-
-
-
 .container.done {
-  background-color: rgb(0, 130, 0);
+  background-color: rgb(6, 169, 30);
 
 }
 
@@ -205,7 +209,7 @@ i {
 }
 
 .container.done .toDo .top {
-  width: auto;
+  width: 20rem;
 }
 
 .container.done .toDo .left {
@@ -222,7 +226,6 @@ i {
   grid-row-end: 3;
 }
 
-
 .container.dropped {
   background-color: #fd2f2f;
 }
@@ -234,7 +237,7 @@ i {
 }
 
 .container.dropped .toDo .top {
-  width: auto;
+  width: 20rem;
   word-wrap: break-word;
 }
 
@@ -250,4 +253,81 @@ i {
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 3;
+}
+
+@media only screen and (max-width:950px) and (min-width:431px) {
+  .list-sec .container {
+    width: 30rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-radius: .5rem;
+  }
+
+  .list-sec {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .inputOptions {
+    width: 24rem;
+  }
+
+  .container.done .toDo .top {
+    width: 20rem;
+  }
+
+  .container.onGoing .toDo .top {
+    width: 18rem;
+    margin-left: .7rem;
+  }
+
+  .container.onGoing .toDo .bottom {
+    width: 18rem;
+    margin-left: .7rem;
+  }
+
+  .container.dropped .toDo .top {
+    width: 18rem;
+    margin-left: .7rem;
+  }
+
+  .container.dropped .toDo .bottom {
+    margin-left: .7rem;
+  }
+}
+
+@media only screen and(max-width:430px){
+  .list-sec .container {
+    width:90%;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-radius: .5rem;
+  }
+  .list-sec {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center;
+    align-items: center; */
+  }
+  .container {
+    width: 90%;
+  }
+ 
+  .inputOptions {
+    width: fit-content;
+  }
+
+  .container.done .toDo .top {
+    width: 80vw;
+  }
+
+  .container.onGoing .toDo .top {
+    width: 70vw;
+  }
+
+  .container.dropped .toDo .top {
+    width: 70vw;
+  }
 }

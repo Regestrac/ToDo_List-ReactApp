@@ -9,7 +9,7 @@ function App() {
     const initialValue = JSON.parse(saved);
     return (initialValue || "")                   //If not available gets empty string
   })
-  const index = toDos && toDos.findIndex(obj => obj.statusRemoved == true);
+  const index = toDos && toDos.findIndex(obj => obj.statusRemoved === true);
   if(index > -1) {toDos && toDos.splice((index), 1); }
 
   const today = new Date();
@@ -41,7 +41,7 @@ function App() {
         statusErase: false,
         statusRetreve: false
       }]);
-      // setToDo('');
+      setToDo('');
     }
   })
   const clearInput = () => {
@@ -65,13 +65,13 @@ function App() {
         <form onSubmit={handleInput}>
           <div className='inputOptions'>
             <div className='left'>
-              <input value={toDo} onChange={handleUserInput} type="text" placeholder='🖋️ Plan Something...'></input>
+              <input value={toDo} onChange={handleUserInput} type="text" placeholder='Plan Something...🖋️'></input>
             </div>
             <div className='middle erase'>
               <i onClick={clearInput} className="fas fa-eraser" title="Clear"></i>
             </div>
             <div className='right add'>
-              <i type='submit' onClick={handleInput} className="fa-solid fa-circle-plus" title="Add"></i>
+              <i type='submit' onClick={handleInput} className="fa fa-plus" title="Add"></i>
             </div>
           </div>
         </form>
@@ -108,6 +108,7 @@ function App() {
                 </div>
               )
             }
+            return null;
           })
           }
         </div>
@@ -184,6 +185,7 @@ function App() {
                 </div>
               )
             }
+            return null;
           })
           }
         </div>
@@ -212,7 +214,7 @@ function App() {
                   <div className='bottom'>
                     <p>{obj.time}</p>
                   </div>
-                  <div className='right binm'>
+                  <div className='right bin'>
                     <i onClick={(e) => {
                       let isdelete = window.confirm("Delete toDo Permanently ?")
                       if (isdelete) {
@@ -227,8 +229,9 @@ function App() {
                     }} value={obj.statusRemoved} className='fas fa-trash-alt' title='Remove'></i>
                   </div>
                 </div>
-              )
-            }
+                )
+              }
+              return null;
           })
           }
         </div>
