@@ -64,20 +64,20 @@ function App() {
         </div>
         <form onSubmit={handleInput}>
           <div className='inputOptions'>
-            <div className='left'>
+            <div className='left-input'>
               <input value={toDo} onChange={handleUserInput} type="text" placeholder='Plan Something...🖋️'></input>
             </div>
-            <div className='middle erase'>
+            <div className='middle-input erase'>
               <i onClick={clearInput} className="fas fa-eraser" title="Clear"></i>
             </div>
-            <div className='right add'>
+            <div className='right-input add'>
               <i type='submit' onClick={handleInput} className="fa fa-plus" title="Add"></i>
             </div>
           </div>
         </form>
       </div>
 
-      <div className='list-sec'>
+      <div className="list-sec">
         <div className='container done'>
           <h3>Completed</h3>
           {toDos && toDos.map((obj) => {
